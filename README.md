@@ -6,8 +6,6 @@ MathPad is a compact 4x4 mechanical keypad designed for fast numeric and math in
 Its primary purpose is to provide a customizable keypad for productivity, coding, or creative projects.  
 The keyboard features a Seeed XIAO RP2040 microcontroller, fully programmable firmware via KMK, and a small OLED display for dynamic feedback or animations.  
 
-The device combines **mechanical switches**, **RGB LEDs**, and **3D printed case components** to create a functional, durable, and visually appealing pad.  
-
 ---
 
 ## Bill of Materials (BOM)
@@ -31,22 +29,28 @@ The device combines **mechanical switches**, **RGB LEDs**, and **3D printed case
 ## Firmware
 
 Firmware is written using **KMK (Keyboard Microcontroller Kit)** for Python.  
-- Supports full key remapping and macros  
+- Supports 16 key matrix
 - Controls 16 SK6812 LEDs for animations  
 - Updates the OLED display with custom text or image frames  
 
 The firmware is stored in the `firmware/` folder and can be flashed directly to the Seeed XIAO RP2040.  
 
+OLED Animations
+- The 0.91" OLED displays 128×32 1-bit BMP frames from `firmware/animations/`.  
+- 1. Put BMPs (128×32) in `animations/`.  
+- 2. Name sequentially (e.g., `frame_01.bmp`, `frame_02.bmp`).  
+- 3. Flash firmware to the XIAO RP2040.  
+- The firmware cycles through frames automatically.
+
 ---
 
 ## CAD / Case
 
-The case is designed in **3D CAD** for 3D printing.  
+The case was designed in **Fusion 360** for 3D printing.  
 
 ![Case](Assets/case.png)
 
 - Top and bottom halves include heatset inserts for M3 screws and mounting points for the PCB.  
-- Case is optimized for a compact footprint while allowing easy assembly and maintenance.
 
 ---
 
@@ -59,9 +63,7 @@ PCB designed in **KiCad**.
 
 - 4x4 switch matrix with THT 1N4148 diodes for each switch  
 - Integrated 16x SK6812 LEDs for backlighting  
-- 0.91" I2C OLED display included  
-- Seeed XIAO RP2040 mounted directly on PCB  
-- All files (schematic and PCB layout) are included in the repository
+- 0.91" I2C OLED display included   
 
 ---
 
